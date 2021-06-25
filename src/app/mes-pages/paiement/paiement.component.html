@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Liste des paiements validés</h4>
+        </div>
+        <div class="card-body">
+
+            <div *ngIf="personnes == null" class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+            
+          <div *ngIf="personnes != null" class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Nom & Prénom
+                </th>
+                <th>
+                  Téléphone
+                </th>
+                <th>
+                  Profession
+                </th>
+                <th>
+                  Sexe
+                </th>
+                <th>
+                  Date
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let personne of personnes">
+                    <td>
+                        {{personne.nom_prenom}}
+                    </td>
+                    <td>
+                        {{personne.telephone}}
+                    </td>
+                    <td>
+                        {{personne.profession}}
+                    </td>
+                    <td>
+                        {{personne.sexe}}
+                    </td>
+                    <td>
+                        {{getDate(personne.created_at)}}
+                    </td>
+                </tr>
+               </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
